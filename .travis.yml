@@ -13,14 +13,11 @@ script:
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN
 
+before_deploy:
+  - cd dist
+
 deploy:  
  provider: azure_web_apps
  skip_cleanup: true
- file: "dist/*"
  on:
     branch: master
-
-notifications:
-  email:
-    on_failure: change
-    on_success: change
