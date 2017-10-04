@@ -16,6 +16,7 @@ after_success:
 deploy:  
  provider: azure_web_apps
  skip_cleanup: true
+ file: "dist/*"
  on:
     branch: master
 
