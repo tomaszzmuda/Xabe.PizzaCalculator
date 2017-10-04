@@ -1,6 +1,9 @@
 language: node_js
 node_js:
-  - "6.11"
+  - "8.6"
+
+before_install:
+  - sudo apt-get install ncftp
 
 before_script:
   - npm install -g
@@ -11,13 +14,4 @@ script:
   - ng build --prod
 
 after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
-
-before_deploy:
-  - cd dist
-
-deploy:  
- provider: azure_web_apps
- skip_cleanup: true
- on:
-    branch: master
+  -  ncftpput -R -u "$AZURE_WA_USERNAME" -p "$AZURE_WA_PASSWORD" $AZURE_WA_FTP site/wwwroot dist/*
