@@ -1,15 +1,12 @@
 <div class="ui-g-12" style="text-align: center">
-    <div class="ui-g-4" style="text-align: center"></div>
-    <div class="ui-g-4" style="text-align: center">
-        <p-dataList [value]="pizzas" [rows]="5" [paginator]="false" [style]="{'width': '500px'}">
-            <ng-template let-pizza pTemplate="item">
-                <pizza [value]="pizza" (pizzaRemove)="onPizzaRemove($event)"></pizza>
-            </ng-template>
-        </p-dataList>
-    </div>
-    <div class="ui-g-4" style="text-align: center"></div>
-    <div class="ui-g-12" style="text-align: center">
-        <button pButton type="button" label="Policz" (click)="recalc()"></button>
-        <button pButton type="button" icon="fa fa-plus" (click)="newPizza()"></button>
-    </div>
+    <p-panel header="Xabe.PizzaCalculator" [style]="{'width': '500px'}">
+        <div *ngFor="let pizza of pizzas">
+            <pizza [value]="pizza" (pizzaRemove)="onPizzaRemove($event)"></pizza>
+        </div>
+    </p-panel>
+</div>
+
+<div class="ui-g-12" style="text-align: center">
+    <button pButton type="button" label="Policz" (click)="recalc()"></button>
+    <button pButton type="button" icon="fa fa-plus" (click)="newPizza()"></button>
 </div>

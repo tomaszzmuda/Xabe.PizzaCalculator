@@ -1,4 +1,12 @@
 input {
-    width: 150px;
+    width: 80%;
     margin-top: 5px;
-};
+}
+
+.ui-dropdown{ width: 44% }
+
+.center {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
