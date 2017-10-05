@@ -6,7 +6,7 @@ export class Pizza {
     width: number;
     height: number;
     price: number;
-    message: string;
+    message = '0';
     pizzaType: PizzaType;
 
     Recalc() {
@@ -16,6 +16,7 @@ export class Pizza {
         } else if (this.pizzaType === PizzaType.square) {
             result = (this.width * this.height) / this.price;
         }
-        this.message = `Cena za cm2: ${result}`;
+        this.message = `${parseFloat(`${Math.round(result * 100) / 100}`).toFixed(2)} zł`;
     }
+
 }

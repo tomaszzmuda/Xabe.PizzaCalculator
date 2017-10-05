@@ -1,9 +1,9 @@
-input, .ui-dropdown {
-    width: 130px;
-}
-
 .center {
     display: flex; 
     justify-content: center; 
     align-items: center;
+}
+
+.ui-panel {
+    width: 600px;
 }

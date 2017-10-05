@@ -1,12 +1,13 @@
 import { PizzaType } from 'app/Pizza/pizzaType';
 import { Pizza } from './pizza';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { SelectItem } from 'primeng/components/common/selectitem';
 
 @Component({
     selector: 'pizza',
     templateUrl: 'pizza.component.html',
-    styleUrls: ['pizza.component.css']
+    styleUrls: ['pizza.component.css'],
+    encapsulation: ViewEncapsulation.None,
 })
 
 export class PizzaComponent implements OnInit {

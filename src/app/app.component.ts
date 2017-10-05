@@ -1,11 +1,12 @@
 import { PizzaType } from 'app/Pizza/pizzaType';
 import { Pizza } from './Pizza/pizza';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styles: []
+  styleUrls: ['app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent implements OnInit {
