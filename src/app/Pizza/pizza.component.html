@@ -1,36 +1,33 @@
-<div class="ui-g">
-    <div class="ui-g-3 center">
-        <p-lightbox *ngIf="value.pizzaType==1" [images]="roundPizzaImage"></p-lightbox>
-        <p-lightbox *ngIf="value.pizzaType==2" [images]="squarePizzaImage"></p-lightbox>
-    </div>
+<div class="ui-g-3 center">
+    <p-lightbox *ngIf="value.pizzaType==1" [images]="roundPizzaImage"></p-lightbox>
+    <p-lightbox *ngIf="value.pizzaType==2" [images]="squarePizzaImage"></p-lightbox>
+</div>
 
-    <div class="ui-g-4">
-        <div class="ui-g-12">
-            <p-dropdown [options]="pizzaTypes" [(ngModel)]="value.pizzaType" [autoWidth]="false" appendTo="body"></p-dropdown>
-        </div>
-        <div class="ui-g-12">
-            <input *ngIf="value.pizzaType==1" type="text" pInputText [(ngModel)]="value.diameter" placeholder="Średnica" />
-            <input *ngIf="value.pizzaType==2" type="text" pInputText [(ngModel)]="value.width" placeholder="Szerokość" />
-        </div>
-        <div class="ui-g-12" *ngIf="value.pizzaType==2">
-            <input type="text" pInputText [(ngModel)]="value.height" placeholder="Wysokość" />
-        </div>
-        <div class="ui-g-12">
-            <input type="text" pInputText [(ngModel)]="value.price" placeholder="Cena" />
-        </div>
+<div class="ui-g-4">
+    <div class="ui-g-12">
+        <p-dropdown [options]="pizzaTypes" [(ngModel)]="value.pizzaType" [autoWidth]="false" appendTo="body"></p-dropdown>
     </div>
-
-    <div class="ui-g-3">
-        <div class="ui-g-12">
-            <p>Cena za cm2:</p>
-        </div>
-        <div class="ui-g-12 center">
-            <p>{{value.message}}</p>
-        </div>
+    <div class="ui-g-12">
+        <input *ngIf="value.pizzaType==1" type="text" pInputText [(ngModel)]="value.diameter" placeholder="Średnica" />
+        <input *ngIf="value.pizzaType==2" type="text" pInputText [(ngModel)]="value.width" placeholder="Szerokość" />
     </div>
-
-    <div class="ui-g-2 center">
-        <button pButton type="button" icon="fa fa-minus" (click)="removePizza()"></button>
+    <div class="ui-g-12" *ngIf="value.pizzaType==2">
+        <input type="text" pInputText [(ngModel)]="value.height" placeholder="Wysokość" />
     </div>
+    <div class="ui-g-12">
+        <input type="text" pInputText [(ngModel)]="value.price" placeholder="Cena" />
+    </div>
+</div>
 
+<div class="ui-g-3">
+    <div class="ui-g-12">
+        <p>Cena za cm2:</p>
+    </div>
+    <div class="ui-g-12 center">
+        <p>{{value.message}}</p>
+    </div>
+</div>
+
+<div class="ui-g-2 center">
+    <button pButton type="button" icon="fa fa-minus" (click)="removePizza()"></button>
 </div>
