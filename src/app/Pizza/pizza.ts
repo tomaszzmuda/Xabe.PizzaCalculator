@@ -16,7 +16,11 @@ export class Pizza {
         } else if (this.pizzaType === PizzaType.square) {
             result = (this.width * this.height) / this.price;
         }
-        this.message = `${parseFloat(`${Math.round(result * 100) / 100}`).toFixed(2)} zł`;
+        let msg = `${parseFloat(`${Math.round(result * 100) / 100}`).toFixed(2)}`;
+        if (msg !== 'NaN') {
+            msg += ' zł';
+        }
+        this.message = msg;
     }
 
 }
