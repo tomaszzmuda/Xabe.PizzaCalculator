@@ -2,10 +2,10 @@
     <p-panel header="Xabe.PizzaCalculator">
         <!-- style="background-color: lightgrey" -->
         <div *ngFor="let pizza of pizzas;  let i = index" [attr.data-index]="i">
-            <div class="ui-g">
+            <div class="ui-g ui-fluid">
                 <pizza *ngIf="i%2==1" [value]="pizza" style="background-color: lightgray" (pizzaRemove)="onPizzaRemove($event)"></pizza>
             </div>
-            <div class="ui-g">
+            <div class="ui-g ui-fluid">
                 <pizza *ngIf="i%2==0" [value]="pizza" style="background-color: white" (pizzaRemove)="onPizzaRemove($event)"></pizza>
             </div>
         </div>

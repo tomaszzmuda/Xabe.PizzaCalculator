@@ -5,5 +5,9 @@
 }
 
 .ui-panel {
-    width: 640px;
+    max-width: 550px;
+}
+
+button {
+    margin-top: 15px;
 }

@@ -1,9 +1,15 @@
-input, .ui-dropdown {
-    width: 130px;
-}
-
 .center {
     display: flex; 
     justify-content: center; 
     align-items: center;
+}
+
+.padding {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
 }

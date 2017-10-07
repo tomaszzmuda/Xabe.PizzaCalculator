@@ -1,33 +1,32 @@
-<div class="ui-g-3 center">
-    <p-lightbox *ngIf="value.pizzaType==1" [images]="roundPizzaImage"></p-lightbox>
-    <p-lightbox *ngIf="value.pizzaType==2" [images]="squarePizzaImage"></p-lightbox>
+<div class="ui-g-3 ui-fluid center">
+    <img [src]="image" />
 </div>
 
 <div class="ui-g-4">
-    <div class="ui-g-12">
-        <p-dropdown [options]="pizzaTypes" [(ngModel)]="value.pizzaType" [autoWidth]="false" appendTo="body"></p-dropdown>
+    <div class="ui-g" class="ui-fluid padding">
+        <p-dropdown [options]="pizzaTypes" [(ngModel)]="value.pizzaType" [autoWidth]="false" (onChange)="changePizzaType($event)"></p-dropdown>
     </div>
-    <div class="ui-g-12">
+    <div class="ui-g" class="ui-fluid padding">
         <input *ngIf="value.pizzaType==1" type="text" pInputText [(ngModel)]="value.diameter" placeholder="Średnica" />
         <input *ngIf="value.pizzaType==2" type="text" pInputText [(ngModel)]="value.width" placeholder="Szerokość" />
     </div>
-    <div class="ui-g-12" *ngIf="value.pizzaType==2">
+    <div class="ui-g" class="ui-fluid padding" *ngIf="value.pizzaType==2">
         <input type="text" pInputText [(ngModel)]="value.height" placeholder="Wysokość" />
     </div>
-    <div class="ui-g-12">
+    <div class="ui-g" class="ui-fluid padding">
         <input type="text" pInputText [(ngModel)]="value.price" placeholder="Cena" />
     </div>
 </div>
 
-<div class="ui-g-3">
-    <div class="ui-g-12">
-        <p>Cena za cm2:</p>
+<div class="ui-g-4">
+    <div class="ui-g center">
+        Cena za cm2:
     </div>
-    <div class="ui-g-12 center">
+    <div class="ui-g center">
         <p>{{value.message}}</p>
     </div>
 </div>
 
-<div class="ui-g-2 center">
+<div class="ui-g-1">
     <button pButton type="button" icon="fa fa-minus" (click)="removePizza()"></button>
 </div>

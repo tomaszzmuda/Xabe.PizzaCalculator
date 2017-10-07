@@ -7,7 +7,7 @@ import { SelectItem } from 'primeng/components/common/selectitem';
     selector: 'pizza',
     templateUrl: 'pizza.component.html',
     styleUrls: ['pizza.component.css'],
-    encapsulation: ViewEncapsulation.None,
+    encapsulation: ViewEncapsulation.None
 })
 
 export class PizzaComponent implements OnInit {
@@ -15,13 +15,11 @@ export class PizzaComponent implements OnInit {
 
     @Output() pizzaRemove: EventEmitter<Pizza> = new EventEmitter<Pizza>();
 
-    roundPizzaImage: any[] = [];
-    squarePizzaImage: any[] = [];
+    image: string;
     pizzaTypes: SelectItem[] = [];
 
     ngOnInit(): void {
-        this.roundPizzaImage.push({ source: 'assets/roundPizza.jpg', thumbnail: 'assets/roundPizzaMini.jpg', title: 'Pizza' });
-        this.squarePizzaImage.push({ source: 'assets/squarePizza.jpg', thumbnail: 'assets/squarePizzaMini.jpg', title: 'Pizza' });
+        this.image = 'assets/roundPizza.jpg';
 
         this.pizzaTypes.push({ label: 'Okrągła', value: 1 });
         this.pizzaTypes.push({ label: 'Prostokątna', value: 2 });
@@ -29,6 +27,15 @@ export class PizzaComponent implements OnInit {
 
     removePizza(): void {
         this.pizzaRemove.emit(this.value);
+    }
+
+    changePizzaType(event) {
+        if (event.value === 1) {
+            this.image = 'assets/roundPizza.jpg';
+        }
+        else {
+            this.image = 'assets/squarePizza.jpg';
+        }
     }
 }
 
