@@ -1,4 +1,5 @@
-import { PizzaType } from "app/Pizza/pizzaType";
+import { PizzaType } from 'app/Pizza/pizzaType';
+import * as _ from 'lodash';
 
 export class Pizza {
     id: number;
@@ -6,21 +7,16 @@ export class Pizza {
     width: number;
     height: number;
     price: number;
-    message = '0';
+    pricePerUnit: number;
     pizzaType: PizzaType;
+    isCheapest: boolean;
 
-    Recalc() {
-        let result = 0;
-        if (this.pizzaType === PizzaType.round) {
-            result = ((this.diameter / 2) * (this.diameter / 2) * 3.14) / this.price;
-        } else if (this.pizzaType === PizzaType.square) {
-            result = (this.width * this.height) / this.price;
+    get message(): string {
+        if (!this.pricePerUnit) {
+            return;
         }
-        let msg = `${parseFloat(`${Math.round(result * 100) / 100}`).toFixed(2)}`;
-        if (msg !== 'NaN') {
-            msg += ' zł';
-        }
-        this.message = msg;
+
+        const msg = this.pricePerUnit + ' zł';
+        return msg;
     }
-
 }

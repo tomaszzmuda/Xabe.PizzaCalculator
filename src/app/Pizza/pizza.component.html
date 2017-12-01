@@ -1,32 +1,36 @@
-<div class="ui-g-3 ui-fluid center">
-    <img [src]="image" />
-</div>
+<div [style.background-color]="isCheapest ? '#1abd35' : ''" class="ui-g-12 ui-fluid center">
+    <div class="ui-g-3 ui-fluid center">
+        <img [src]="image" />
+    </div>
 
-<div class="ui-g-4">
-    <div class="ui-g" class="ui-fluid padding">
-        <p-dropdown [options]="pizzaTypes" [(ngModel)]="value.pizzaType" [autoWidth]="false" (onChange)="changePizzaType($event)"></p-dropdown>
+    <div class="ui-g-4">
+        <div class="ui-g" class="ui-fluid padding">
+            <p-dropdown [options]="pizzaTypes" [(ngModel)]="value.pizzaType" [autoWidth]="false" (onChange)="changePizzaType($event.value)"></p-dropdown>
+        </div>
+        <div class="ui-g" class="ui-fluid padding">
+            <input *ngIf="value.pizzaType==1" type="text" pInputText [(ngModel)]="value.diameter" placeholder="Średnica" (change)="recalc()"
+            />
+            <input *ngIf="value.pizzaType==2" type="text" pInputText [(ngModel)]="value.width" placeholder="Szerokość" (change)="recalc()"
+            />
+        </div>
+        <div class="ui-g" class="ui-fluid padding" *ngIf="value.pizzaType==2">
+            <input type="text" pInputText [(ngModel)]="value.height" placeholder="Wysokość" (change)="recalc()" />
+        </div>
+        <div class="ui-g" class="ui-fluid padding">
+            <input type="text" pInputText [(ngModel)]="value.price" placeholder="Cena" (change)="recalc()" />
+        </div>
     </div>
-    <div class="ui-g" class="ui-fluid padding">
-        <input *ngIf="value.pizzaType==1" type="text" pInputText [(ngModel)]="value.diameter" placeholder="Średnica" />
-        <input *ngIf="value.pizzaType==2" type="text" pInputText [(ngModel)]="value.width" placeholder="Szerokość" />
-    </div>
-    <div class="ui-g" class="ui-fluid padding" *ngIf="value.pizzaType==2">
-        <input type="text" pInputText [(ngModel)]="value.height" placeholder="Wysokość" />
-    </div>
-    <div class="ui-g" class="ui-fluid padding">
-        <input type="text" pInputText [(ngModel)]="value.price" placeholder="Cena" />
-    </div>
-</div>
 
-<div class="ui-g-4">
-    <div class="ui-g center">
-        Cena za cm2:
+    <div class="ui-g-4">
+        <div class="ui-g center">
+            Cena za cm2:
+        </div>
+        <div class="ui-g center">
+            <p>{{value.message}}</p>
+        </div>
     </div>
-    <div class="ui-g center">
-        <p>{{value.message}}</p>
-    </div>
-</div>
 
-<div class="ui-g-1">
-    <button pButton type="button" icon="fa fa-minus" (click)="removePizza()"></button>
+    <div class="ui-g-1">
+        <button pButton type="button" icon="fa fa-minus" (click)="removePizza()"></button>
+    </div>
 </div>

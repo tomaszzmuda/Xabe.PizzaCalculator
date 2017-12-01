@@ -17,12 +17,6 @@ export class AppComponent implements OnInit {
     this.newPizza();
   }
 
-  recalc() {
-    for (const pizza of this.pizzas) {
-      pizza.Recalc();
-    }
-  }
-
   newPizza() {
     const pizza = new Pizza();
     pizza.pizzaType = PizzaType.round;
@@ -30,6 +24,10 @@ export class AppComponent implements OnInit {
   }
 
   onPizzaRemove(pizza: Pizza) {
+    if (this.pizzas.length <= 1) {
+      return;
+    }
+
     const index = this.pizzas.indexOf(pizza, 0);
     if (index > -1) {
       this.pizzas.splice(index, 1);
