@@ -13,7 +13,7 @@ before_script:
   - npm install --save-dev @types/lodash
 
 script:
-  - ng build --prod
+  - ng build --prod --aot=false
 
 after_success:
   -  ncftpput -R -u "$AZURE_WA_USERNAME" -p "$AZURE_WA_PASSWORD" $AZURE_WA_FTP site/wwwroot dist/*
