@@ -10,6 +10,7 @@ before_script:
   - npm install -g
   - npm install -g @angular/cli
   - npm install primeng
+  - npm install --save-dev @types/lodash
 
 script:
   - ng build --prod
