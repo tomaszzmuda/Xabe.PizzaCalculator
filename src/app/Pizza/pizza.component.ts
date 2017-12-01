@@ -21,7 +21,7 @@ export class PizzaComponent implements OnInit {
     pizzaTypes: SelectItem[] = [];
 
     ngOnInit(): void {
-        this.image = 'assets/roundPizza.png';
+        this.image = '/assets/roundPizza.png';
 
         this.pizzaTypes.push({ label: 'Okrągła', value: 1 });
         this.pizzaTypes.push({ label: 'Prostokątna', value: 2 });
@@ -34,10 +34,10 @@ export class PizzaComponent implements OnInit {
     changePizzaType(pizzaType: PizzaType) {
         switch (pizzaType) {
             case PizzaType.round:
-                this.image = 'assets/roundPizza.png';
+                this.image = '/assets/roundPizza.png';
                 break;
             case PizzaType.square:
-                this.image = 'assets/squarePizza.jpg';
+                this.image = '/assets/squarePizza.jpg';
                 break;
         }
         this.recalc();

@@ -1,5 +1,4 @@
 import { PizzaType } from 'app/Pizza/pizzaType';
-import * as _ from 'lodash';
 
 export class Pizza {
     id: number;
