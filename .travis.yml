@@ -6,6 +6,7 @@ before_install:
   - sudo apt-get install ncftp
 
 before_script:
+  - npm install
   - npm install -g
   - npm install -g @angular/cli
   - npm install primeng

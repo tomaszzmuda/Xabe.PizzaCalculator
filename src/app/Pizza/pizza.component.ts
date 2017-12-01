@@ -15,6 +15,7 @@ export class PizzaComponent implements OnInit {
     @Input() value: Pizza;
 
     @Output() onPizzaDeleteClick: EventEmitter<Pizza> = new EventEmitter<Pizza>();
+    @Output() onValueChanged: EventEmitter<Pizza> = new EventEmitter<Pizza>();
 
     image: string;
     pizzaTypes: SelectItem[] = [];
@@ -53,6 +54,8 @@ export class PizzaComponent implements OnInit {
                 break;
         }
         this.value.pricePerUnit = _.round(result, 2);
+
+        this.onValueChanged.emit(this.value);
     }
 }
 

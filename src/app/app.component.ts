@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     this.pizzas.push(pizza);
   }
 
-  onPizzaRemove(pizza: Pizza) {
+  onPizzaDeleteClick(pizza: Pizza) {
     if (this.pizzas.length <= 1) {
       return;
     }
@@ -32,6 +32,19 @@ export class AppComponent implements OnInit {
     if (index > -1) {
       this.pizzas.splice(index, 1);
     }
+  }
+
+  onValueChanged() {
+    let minimumPrice = this.pizzas[0].pricePerUnit;
+    let cheapestPizza = this.pizzas[0];
+    this.pizzas.forEach(pizza => {
+      pizza.isCheapest = false;
+      if (pizza.pricePerUnit < minimumPrice) {
+        minimumPrice = pizza.pricePerUnit;
+        cheapestPizza = pizza;
+      }
+    });
+    cheapestPizza.isCheapest = true;
   }
 }
 
