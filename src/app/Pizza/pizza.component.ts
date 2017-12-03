@@ -1,3 +1,4 @@
+import { ImageService } from './../image.service';
 import { PizzaType } from 'app/Pizza/pizzaType';
 import { Pizza } from './pizza';
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
@@ -17,12 +18,14 @@ export class PizzaComponent implements OnInit {
     @Output() onPizzaDeleteClick: EventEmitter<Pizza> = new EventEmitter<Pizza>();
     @Output() onValueChanged: EventEmitter<Pizza> = new EventEmitter<Pizza>();
 
-    image: string;
+    image: string = this.imageService.roundPizzaImage;
     pizzaTypes: SelectItem[] = [];
 
-    ngOnInit(): void {
-        this.image = '/assets/roundPizza.png';
+    constructor(private imageService: ImageService) {
 
+    }
+
+    ngOnInit(): void {
         this.pizzaTypes.push({ label: 'Okrągła', value: 1 });
         this.pizzaTypes.push({ label: 'Prostokątna', value: 2 });
     }
@@ -34,10 +37,10 @@ export class PizzaComponent implements OnInit {
     changePizzaType(pizzaType: PizzaType) {
         switch (pizzaType) {
             case PizzaType.round:
-                this.image = '/assets/roundPizza.png';
+                this.image = this.imageService.roundPizzaImage;
                 break;
             case PizzaType.square:
-                this.image = '/assets/squarePizza.png';
+                this.image = this.imageService.squarePizzaImage;
                 break;
         }
         this.recalc();

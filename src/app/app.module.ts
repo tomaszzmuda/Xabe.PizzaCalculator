@@ -1,3 +1,4 @@
+import { ImageService } from './image.service';
 import { PizzaComponent } from './Pizza/pizza.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -28,7 +29,9 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     PanelModule
   ],
-  providers: [],
+  providers: [
+    ImageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
