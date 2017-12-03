@@ -8,16 +8,16 @@
             <p-dropdown [options]="pizzaTypes" [(ngModel)]="value.pizzaType" [autoWidth]="false" (onChange)="changePizzaType($event.value)"></p-dropdown>
         </div>
         <div class="ui-g" class="ui-fluid padding">
-            <input *ngIf="value.pizzaType==1" type="text" pInputText [(ngModel)]="value.diameter" placeholder="Średnica" (change)="recalc()"
+            <input *ngIf="value.pizzaType==1" type="number" pInputText [(ngModel)]="value.diameter" placeholder="Średnica" (change)="recalc()"
             />
-            <input *ngIf="value.pizzaType==2" type="text" pInputText [(ngModel)]="value.width" placeholder="Szerokość" (change)="recalc()"
+            <input *ngIf="value.pizzaType==2" type="number" pInputText [(ngModel)]="value.width" placeholder="Szerokość" (change)="recalc()"
             />
         </div>
         <div class="ui-g" class="ui-fluid padding" *ngIf="value.pizzaType==2">
-            <input type="text" pInputText [(ngModel)]="value.height" placeholder="Wysokość" (change)="recalc()" />
+            <input type="number" pInputText [(ngModel)]="value.height" placeholder="Wysokość" (change)="recalc()" />
         </div>
         <div class="ui-g" class="ui-fluid padding">
-            <input type="text" pInputText [(ngModel)]="value.price" placeholder="Cena" (change)="recalc()" />
+            <input type="number" pInputText [(ngModel)]="value.price" placeholder="Cena" (change)="recalc()" />
         </div>
     </div>
 

@@ -37,7 +37,7 @@ export class PizzaComponent implements OnInit {
                 this.image = '/assets/roundPizza.png';
                 break;
             case PizzaType.square:
-                this.image = '/assets/squarePizza.jpg';
+                this.image = '/assets/squarePizza.png';
                 break;
         }
         this.recalc();
