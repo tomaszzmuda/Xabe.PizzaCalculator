@@ -15,7 +15,7 @@ export class Pizza {
             return;
         }
 
-        const msg = this.pricePerUnit + ' zł';
+        const msg = this.pricePerUnit + ' gr';
         return msg;
     }
 }

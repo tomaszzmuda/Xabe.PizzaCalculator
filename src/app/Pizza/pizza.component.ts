@@ -50,13 +50,13 @@ export class PizzaComponent implements OnInit {
         let result = 0;
         switch (this.value.pizzaType) {
             case PizzaType.round:
-                result = ((this.value.diameter / 2) * (this.value.diameter / 2) * 3.14) / this.value.price;
+                result = this.value.price / ((this.value.diameter / 2) * (this.value.diameter / 2) * 3.14);
                 break;
             case PizzaType.square:
-                result = (this.value.width * this.value.height) / this.value.price;
+                result = this.value.price / (this.value.width * this.value.height);
                 break;
         }
-        this.value.pricePerUnit = _.round(result, 2);
+        this.value.pricePerUnit = _.round(result * 100, 2);
 
         this.onValueChanged.emit(this.value);
     }
