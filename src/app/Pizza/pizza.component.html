@@ -14,10 +14,10 @@
             />
         </div>
         <div class="ui-g" class="ui-fluid padding" *ngIf="value.pizzaType==2">
-            <input type="number" pInputText [(ngModel)]="value.height" placeholder="Wysokość" (change)="recalc()" />
+            <input type="number" pInputText [(ngModel)]="value.height" placeholder="Wysokość" (change)="recalc()" step="1" min="0" />
         </div>
         <div class="ui-g" class="ui-fluid padding">
-            <input type="number" pInputText [(ngModel)]="value.price" placeholder="Cena" (change)="recalc()" />
+            <input type="number" step="0.01" min="0" pInputText [(ngModel)]="value.price" placeholder="Cena" (change)="recalc()" />
         </div>
     </div>
 

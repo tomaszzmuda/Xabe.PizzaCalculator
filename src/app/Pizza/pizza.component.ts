@@ -56,7 +56,7 @@ export class PizzaComponent implements OnInit {
                 result = this.value.price / (this.value.width * this.value.height);
                 break;
         }
-        this.value.pricePerUnit = _.round(result * 100, 2);
+        this.value.pricePerUnit = _.ceil(result * 100, 2);
 
         this.onValueChanged.emit(this.value);
     }
